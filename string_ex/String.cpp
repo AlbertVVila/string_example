@@ -9,9 +9,9 @@ String::String()
 
 String::String(const char * string)
 {
-	int length = strlen(string);
-	this->mem_allocated = length +1;
-	this->string = new char[length + 1];
+
+	this->mem_allocated = strlen(string) +1;
+	this->string = new char[mem_allocated];
 	strcpy(this->string, string);
 }
 
@@ -47,8 +47,8 @@ int String::length() const
 
 void String::clear()
 {
-	this->string = nullptr;
-	this->mem_allocated = 0;
+	string = nullptr;
+	mem_allocated = 0;
 }
 
 int String::strcmp(const char *s1, const char *s2) const
@@ -89,4 +89,8 @@ void String::strcat(char * dst, const char * src) const
 
 String::~String()
 {
+	if (string)
+	{
+		delete[] string;
+	}
 }
