@@ -19,7 +19,7 @@ public:
 
 	int strcmp(const char *, const char *) const;
 	int strlen(const char *) const;
-	void strcpy(char*dst, const char*src) const;
+	void strcpy(char*dst, const char* src) const;
 	void strcat(char*dst, const char *src) const;
 
 

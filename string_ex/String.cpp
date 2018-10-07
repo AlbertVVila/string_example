@@ -3,14 +3,13 @@
 
 String::String()
 {
-	this->string = nullptr;
-	this->mem_allocated = 0;
+	string = nullptr;
+	mem_allocated = 0;
 }
 
 String::String(const char * string)
 {
-
-	this->mem_allocated = strlen(string) +1;
+	mem_allocated = strlen(string) +1;
 	this->string = new char[mem_allocated];
 	strcpy(this->string, string);
 }
@@ -28,16 +27,19 @@ String String::operator=(const String & other)
 {
 	if (this != &other)
 	{
-		this->mem_allocated = other.mem_allocated;
-		this->string = new char[this->mem_allocated];
-		strcpy(this->string, other.string);
+		mem_allocated = other.mem_allocated;
+
+		delete[] string;
+		string = new char[mem_allocated];
+
+		strcpy(string, other.string);
 	}
 	return *this;
 }
 
 bool String::operator==(const char *other)
 {
-	return strcmp(this->string,other) == 0;
+	return strcmp(string,other) == 0;
 }
 
 int String::length() const
@@ -47,6 +49,7 @@ int String::length() const
 
 void String::clear()
 {
+	delete[] string;
 	string = nullptr;
 	mem_allocated = 0;
 }
@@ -76,6 +79,7 @@ int String::strlen(const char * s) const
 void String::strcpy(char *dst, const char *src) const
 {
 	while ((*(dst++) = *(src++)) != '\0');
+
 }
  
 void String::strcat(char * dst, const char * src) const
@@ -89,8 +93,9 @@ void String::strcat(char * dst, const char * src) const
 
 String::~String()
 {
-	if (string)
+	if (string != nullptr)
 	{
 		delete[] string;
+		string = nullptr;
 	}
 }
