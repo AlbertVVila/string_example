@@ -14,13 +14,15 @@ String::String(const char * string)
 	strcpy(this->string, string);
 }
 
-String String::operator+(const String & other)
+String& String::operator+(const String & other)
 {
-	String s = *this;
-	s.mem_allocated = this->mem_allocated;
-	strcat(s.string, other.string);
-	s.mem_allocated += other.length();
-	return s;
+	String * s = new String;
+	s->mem_allocated = length() + other.length() + 1;
+	s->string = new char[s->mem_allocated];
+
+	strcpy(s->string, this->string);
+	strcat(s->string, other.string);
+	return *s;
 }
 
 String& String::operator=(const String & other)

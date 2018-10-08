@@ -10,7 +10,7 @@ public:
 	String();
 	String(const char*);
 
-	String operator+(const String&);
+	String& operator+(const String&);
 	String& operator=(const String&);
 	bool operator==(const char *);
 

@@ -7,6 +7,5 @@ int main()
 {
 	String a("hola");
 	String b("testing");
-	String c = a;
-	printf("length: %s", c);
+	printf("length: %s", (a+b).string);
 }
