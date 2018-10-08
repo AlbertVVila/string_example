@@ -9,6 +9,7 @@ public:
 	
 	String();
 	String(const char*);
+	String(const String&);
 
 	String& operator+(const String&);
 	String& operator=(const String&);

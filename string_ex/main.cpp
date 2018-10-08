@@ -7,5 +7,12 @@ int main()
 {
 	String a("hola");
 	String b("testing");
-	printf("length: %s", (a+b).string);
+	String c(a);
+	String d = a + b;
+	if (d == "holatesting")
+	{
+		printf("d es igual a holatesting\n");
+	}
+	printf("length: %s\n", c.string);
+	c.clear();
 }

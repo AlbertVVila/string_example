@@ -14,6 +14,13 @@ String::String(const char * string)
 	strcpy(this->string, string);
 }
 
+String::String(const String & other)
+{
+	mem_allocated = other.mem_allocated;
+	string = new char[mem_allocated];
+	strcpy(string, other.string);
+}
+
 String& String::operator+(const String & other)
 {
 	String * s = new String;
