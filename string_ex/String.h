@@ -11,7 +11,7 @@ public:
 	String(const char*);
 
 	String operator+(const String&);
-	String operator=(const String&);
+	String& operator=(const String&);
 	bool operator==(const char *);
 
 	int length() const;

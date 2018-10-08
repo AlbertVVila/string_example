@@ -23,7 +23,7 @@ String String::operator+(const String & other)
 	return s;
 }
 
-String String::operator=(const String & other)
+String& String::operator=(const String & other)
 {
 	if (this != &other)
 	{

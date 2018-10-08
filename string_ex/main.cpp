@@ -7,6 +7,6 @@ int main()
 {
 	String a("hola");
 	String b("testing");
-	b = a;
-	printf("length: %s", b);
+	String c = a;
+	printf("length: %s", c);
 }
