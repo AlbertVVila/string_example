@@ -32,7 +32,7 @@ String& String::operator+(const String & other) const
 	return *s;
 }
 
-String& String::operator=(const String & other) const
+String& String::operator=(const String & other)
 {
 	if (this != &other)
 	{
