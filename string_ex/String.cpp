@@ -21,7 +21,7 @@ String::String(const String & other)
 	strcpy(string, other.string);
 }
 
-String& String::operator+(const String & other)
+String& String::operator+(const String & other) const
 {
 	String * s = new String;
 	s->mem_allocated = length() + other.length() + 1;
@@ -32,7 +32,7 @@ String& String::operator+(const String & other)
 	return *s;
 }
 
-String& String::operator=(const String & other)
+String& String::operator=(const String & other) const
 {
 	if (this != &other)
 	{
@@ -46,7 +46,7 @@ String& String::operator=(const String & other)
 	return *this;
 }
 
-bool String::operator==(const char *other)
+bool String::operator==(const char *other) const
 {
 	return strcmp(string,other) == 0;
 }
@@ -59,8 +59,9 @@ int String::length() const
 void String::clear()
 {
 	delete[] string;
-	string = nullptr;
-	mem_allocated = 0;
+	mem_allocated = 1;
+	string = new char[mem_allocated];
+	string[0] = '\0';
 }
 
 int String::strcmp(const char *s1, const char *s2) const

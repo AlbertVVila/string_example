@@ -13,6 +13,7 @@ int main()
 	{
 		printf("d es igual a holatesting\n");
 	}
-	printf("length: %s\n", c.string);
+	printf("c: %s\n", c);
 	c.clear();
+	printf("c: %s\n", c);
 }
